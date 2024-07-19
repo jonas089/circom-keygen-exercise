@@ -10,6 +10,7 @@ template Circuit () {
     signal input g;
 // Output Signals
     signal output o;
+    signal output gcd;
 // Intermediate Values
     signal pq_gcd_lhs_intermediate;
     signal pq_gcd_rhs_intermediate;
@@ -23,10 +24,16 @@ template Circuit () {
 
     pq_gcd_lhs_intermediate <== p*q;
     pq_gcd_rhs_intermediate <== (p-1) * (q-1);
-    gcd_intermediate <-- gcd(pq_gcd_lhs_intermediate, pq_gcd_rhs_intermediate);
-    // assert that the gcd is 1
-    1 === gcd_intermediate;
 
+    component gcdComp = GCD();
+    gcdComp.left_operand <== p;
+    gcdComp.right_operand <== q;
+    gcd_intermediate <== gcdComp.gcd;
+
+    // assert that the gcd is 1
+    gcd <-- gcd_intermediate;
+    1 === gcd_intermediate;
+    
     // compute least common multiple according to
     // p*q / gcd(p, q) -> reuse the gcd_intermediate
     // note that division is equivalent to multiplying
@@ -46,6 +53,7 @@ template Circuit () {
     l_inner_intermediate <-- (g**lambda_intermediate % pq_gcd_lhs_intermediate**2) - 1;
     mew <-- l_inner_intermediate**(pq_gcd_lhs_intermediate-2)%pq_gcd_lhs_intermediate;
     o <-- (mew != 0 ? 0 : 1);
+    
 }
 
 component main = Circuit();
