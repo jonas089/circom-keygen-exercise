@@ -39,9 +39,12 @@ template Circuit () {
     // pq_gcd_lhs_intermediate == n
 
     // Formula to compute mew
-    // (((g**lambda % n**2) - 1) / n) % n
+    // (((g**lambda % n**2) - 1) / n)
+    // a**(n-2) % n will yield the modular inverse
+
+
     l_inner_intermediate <-- (g**lambda_intermediate % pq_gcd_lhs_intermediate**2) - 1;
-    mew <-- (l_inner_intermediate/pq_gcd_lhs_intermediate) % pq_gcd_lhs_intermediate;
+    mew <-- l_inner_intermediate**(pq_gcd_lhs_intermediate-2)%pq_gcd_lhs_intermediate;
     o <-- (mew != 0 ? 0 : 1);
 }
 
