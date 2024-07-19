@@ -10,7 +10,8 @@ template Circuit () {
     signal input g;
 // Output Signals
     signal output o;
-    signal output gcd;
+    signal output gcd_output;
+    signal output mew_output;
 // Intermediate Values
     signal pq_gcd_lhs_intermediate;
     signal pq_gcd_rhs_intermediate;
@@ -36,7 +37,7 @@ template Circuit () {
     // by the modular inverse.
     
     
-    /*lambda_intermediate <-- pq_gcd_lhs_intermediate / gcd_intermediate;
+    lambda_intermediate <-- pq_gcd_lhs_intermediate / gcd_intermediate;
 
     // check the existance of the modular inverse of mew
     // checking the existance is equivalent to asserting not zero.
@@ -50,8 +51,10 @@ template Circuit () {
 
     l_inner_intermediate <-- (g**lambda_intermediate % pq_gcd_lhs_intermediate**2) - 1;
     mew <-- l_inner_intermediate**(pq_gcd_lhs_intermediate-2)%pq_gcd_lhs_intermediate;
-    o <-- (mew != 0 ? 0 : 1);*/
-    
+
+    o <-- (mew != 0 ? 0 : 1);
+    gcd_output <-- gcd_intermediate;
+    mew_output <-- mew;
 }
 
 component main = Circuit();

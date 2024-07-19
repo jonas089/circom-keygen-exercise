@@ -8,6 +8,18 @@ The primary challenge was to ensure that the field arithmetic modulo `n` checks 
 
 I was also having a hard time to get the `gcd` to work. It seemed to always yield `1` even though the implementation should be correct. This must have to do with quadratic constraints (this section will be updated in case I manage to fix it pre submission).
 
+Example output:
+
+```
+[
+ o:"0",
+ gcd:"1",
+ mew:"1355119801"
+]
+```
+
+I have not figured out why the gcd always yields 1 yet, regardless of the inputs.
+
 # Compiling the circuit and generating a proof
 I included bash scripts that help compile the circuit, compute the witness and generate a proof. 
 
