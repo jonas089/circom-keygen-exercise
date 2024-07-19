@@ -6,8 +6,6 @@ The circuit takes two private inputs that are the prime numbers `p`, `q` and `g`
 # Challenges
 The primary challenge was to ensure that the field arithmetic modulo `n` checks out. By default circom performs elliptic curve arithmetic modulo `p`, which would yield incorrect results for this exercise. I have solved this by computing the modular inverse modulo, with `n` already being a field element of the field under `p`. This should yield correct results since the field arithmetic happens under `p` but `n` is mapped to the corresponding element in that field.
 
-I was also having a hard time to get the `gcd` to work. It seemed to always yield `1` even though the implementation should be correct. This must have to do with quadratic constraints (this section will be updated in case I manage to fix it pre submission).
-
 Example output:
 
 ```
@@ -18,7 +16,7 @@ Example output:
 ]
 ```
 
-I have not figured out why the gcd always yields 1 yet, regardless of the inputs.
+*Solution*: As far as I am concerned now, there is no problem with this approach. The results were correct since we are not performing a primality test on `p` and `q`, but rather want to ensure that the relationship between `p*q` and `(p-1) * (q-1)` is satisfied, e.g. their greatest common divisior being `1`.
 
 # Compiling the circuit and generating a proof
 I included bash scripts that help compile the circuit, compute the witness and generate a proof. 
