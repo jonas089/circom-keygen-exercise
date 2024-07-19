@@ -42,7 +42,7 @@ template Circuit () {
     // (((g**lambda % n**2) - 1) / n) % n
     l_inner_intermediate <-- (g**lambda_intermediate % pq_gcd_lhs_intermediate**2) - 1;
     mew <-- (l_inner_intermediate/pq_gcd_lhs_intermediate) % pq_gcd_lhs_intermediate;
-    o <== (mew != 0 ? 0 : 1);
+    o <-- (mew != 0 ? 0 : 1);
 }
 
 component main = Circuit();
