@@ -25,20 +25,18 @@ template Circuit () {
     pq_gcd_lhs_intermediate <== p*q;
     pq_gcd_rhs_intermediate <== (p-1) * (q-1);
 
-    component gcdComp = GCD();
-    gcdComp.left_operand <== p;
-    gcdComp.right_operand <== q;
-    gcd_intermediate <== gcdComp.gcd;
+    gcd_intermediate <-- gcd(pq_gcd_lhs_intermediate, pq_gcd_rhs_intermediate);
 
     // assert that the gcd is 1
-    gcd <-- gcd_intermediate;
     1 === gcd_intermediate;
     
     // compute least common multiple according to
     // p*q / gcd(p, q) -> reuse the gcd_intermediate
     // note that division is equivalent to multiplying
     // by the modular inverse.
-    lambda_intermediate <-- pq_gcd_lhs_intermediate / gcd_intermediate;
+    
+    
+    /*lambda_intermediate <-- pq_gcd_lhs_intermediate / gcd_intermediate;
 
     // check the existance of the modular inverse of mew
     // checking the existance is equivalent to asserting not zero.
@@ -52,7 +50,7 @@ template Circuit () {
 
     l_inner_intermediate <-- (g**lambda_intermediate % pq_gcd_lhs_intermediate**2) - 1;
     mew <-- l_inner_intermediate**(pq_gcd_lhs_intermediate-2)%pq_gcd_lhs_intermediate;
-    o <-- (mew != 0 ? 0 : 1);
+    o <-- (mew != 0 ? 0 : 1);*/
     
 }
 
