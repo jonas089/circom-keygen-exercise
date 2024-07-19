@@ -1,0 +1,4 @@
+*.r1cs
+*.sym
+keygen_js
+keygen_cpp
