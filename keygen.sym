@@ -1,0 +1,6 @@
+1,1,0,main.p
+2,2,0,main.q
+3,3,0,main.pq_gcd_lhs_intermediate
+4,4,0,main.pq_gcd_rhs_intermediate
+5,-1,0,main.gcd_intermediate
+6,-1,0,main.lambda_intermediate
