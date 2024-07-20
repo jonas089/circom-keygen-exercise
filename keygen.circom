@@ -15,7 +15,7 @@ template Circuit () {
     signal output lambda_out;
     signal output mew_out;
 
-    // the public key is (g,n)
+    // the public key is (n, g)
     // the private key is (lambda, mew)
 
 // Intermediate Values
