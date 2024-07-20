@@ -36,12 +36,45 @@ Thank you for this interesting problem.
 
 Example with `invalid` inputs (`mew` == 0) e.g. public output o == 1:
 ```
-[
+input.json
+
+input: {
+    "p": "3",
+    "q": "5",
+    "g": "7"
+}
+
+
+public.json
+
+output: [
  "1",
  "7",
  "15",
  "4",
  "0"
+]
+```
+
+Example with `valid` inputs (`mew` != 1) e.g. public output o == 0:
+
+```
+input.json 
+
+input: {
+    "p": "97",
+    "q": "89",
+    "g": "47"
+}
+
+public.json
+
+output: [
+ "0",
+ "47",
+ "8633",
+ "1056",
+ "342"
 ]
 ```
 
