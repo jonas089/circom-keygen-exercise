@@ -6,18 +6,6 @@ The circuit takes two private inputs that are the prime numbers `p`, `q` and `g`
 # Challenges
 The primary challenge was to ensure that the field arithmetic modulo `n` checks out. By default circom performs elliptic curve arithmetic modulo `p`, which would yield incorrect results for this exercise. I have solved this by computing the modular inverse modulo, with `n` already being a field element of the field under `p`. This should yield correct results since the field arithmetic happens under `p` but `n` is mapped to the corresponding element in that field.
 
-Example output:
-
-```
-[
- o:"0",
- gcd:"1",
- mew:"1355119801"
-]
-```
-
-*Solution*: As far as I am concerned now, there is no problem with this approach. The results were correct since we are not performing a primality test on `p` and `q`, but rather want to ensure that the relationship between `p*q` and `(p-1) * (q-1)` is satisfied, e.g. their greatest common divisior being `1`.
-
 # Compiling the circuit and generating a proof
 I included bash scripts that help compile the circuit, compute the witness and generate a proof. 
 
@@ -39,7 +27,22 @@ The inputs `p`, `q` and `g` are considered valid if the circuit does not error a
     o <== (mew != 0 ? 0 : 1);
 ```
 
-If the output value is 1 (not 0) the inputs are invalid because `n` does not divide the order of `g` 
+If the first value in `public.json` is 1 (not 0), then the inputs are invalid because `n` does not divide the order of `g` 
 
 Thank you for this interesting problem.
 
+# Other Circuit Outputs
+
+```
+[
+ "0",
+ "7",
+ "15",
+ "10944121435919637611123202872628637544274182200208017171849102093287904247807",
+ "7"
+]
+
+```
+
+As mentioned earlier the first output is expect to be `0`. The second output is the random value for `g` that was passed as a public input, the public key is (`n`, `g`).
+The third value is `n`. The fourth value is `lambda` and the fith value is `mew`. The private key is (`lambda`, `mew`).
