@@ -88,3 +88,5 @@ Now you want to implement a keygen algorithm that operates over another prime fi
 To me it looks like you can perform arithmetic mod `p` and then take the results mod `n` and it will still be correct with respect to the specification of the keygen algorithm, since we make n a field element of `p` and then perform arithmetic mod `p` mod `n`.
 
 Should I be mistaken then this implementation is fundamentally flawed, otherwise it should meet the requirements. From my current understanding of modular arithmetic this approach is valid and does not compromize the security of the keygen.
+
+This is backed by the fact that the [% operator](https://docs.circom.io/circom-language/basic-operators/#arithmetic-operators) does not operate modulo `p`.
