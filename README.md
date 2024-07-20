@@ -33,15 +33,16 @@ Thank you for this interesting problem.
 
 # Other Circuit Outputs
 
+
+Example with `invalid` inputs (`mew` == 0) e.g. public output o == 1:
 ```
 [
- "0",
+ "1",
  "7",
  "15",
- "10944121435919637611123202872628637544274182200208017171849102093287904247807",
- "7"
+ "4",
+ "0"
 ]
-
 ```
 
 As mentioned earlier the first output is expect to be `0`. The second output is the random value for `g` that was passed as a public input, the public key is (`n`, `g`).

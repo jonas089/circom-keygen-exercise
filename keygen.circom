@@ -45,9 +45,9 @@ template Circuit () {
     
     // compute p - 1, q - 1, find lowest common multiple for p - 1, q - 1
     // to find lowest common multiple:
-    // p - 1 * q - 1 / gcd(p - 1, q - 1), assuming p - 1 and q - 1 are positive.
+    // (p - 1) * (q - 1) / gcd(p - 1, q - 1), assuming p - 1 and q - 1 are positive.
 
-    lambda <-- (p - 1 * q - 1) / gcd(p-1, q-1);
+    lambda <-- ((p - 1) * (q - 1)) / gcd(p-1, q-1);
 
     // check the existance of the modular inverse of mew
     // checking the existance is equivalent to asserting not zero.
