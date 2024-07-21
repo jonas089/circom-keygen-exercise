@@ -17,6 +17,9 @@ template Circuit () {
 
     // the public key is (n, g)
     // the private key is (lambda, mew)
+    // Note that in a real-world scenario one would not commit any information
+    // as a public output that can be used to derive the private key. 
+    // I only chose to do this for the scope of this assignment.
 
 // Intermediate Values
     signal pq_gcd_lhs_intermediate;
