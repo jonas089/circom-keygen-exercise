@@ -83,6 +83,8 @@ The third value is `n`. The fourth value is `lambda` and the fith value is `mew`
 Assume that you use a ZK DSL that performs arithmetic over a finite prime field (e.g. mod `p`), where `p` is the elliptic curve modulus.
 Now you want to implement a keygen algorithm that operates over another prime field `n`.
 
+The concern here is that a prime modulo another prime is not guaranteed to yield a prime.
+
 `n` is calculated using `a * b % p`, where `a` and `b` are prime.
 
 To me it looks like you can perform arithmetic mod `p` and then take the results mod `n` and it will still be correct with respect to the specification of the keygen algorithm, since we make n a field element of `p` and then perform arithmetic mod `p` mod `n`.
