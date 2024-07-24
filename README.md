@@ -79,7 +79,7 @@ output: [
 As mentioned earlier the first output is expect to be `0`. The second output is the random value for `g` that was passed as a public input, the public key is (`n`, `g`).
 The third value is `n`. The fourth value is `lambda` and the fith value is `mew`. The private key is (`lambda`, `mew`).
 
-# Open Questions
+# Modular Arithmetic 
 Assume that you use a ZK DSL that performs arithmetic over a finite prime field (e.g. mod `p`), where `p` is the elliptic curve modulus.
 Now you want to implement a keygen algorithm that operates over another prime field `n`.
 
