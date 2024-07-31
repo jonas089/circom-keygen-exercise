@@ -66,6 +66,17 @@ template Circuit () {
     mew <-- l_inner_intermediate**(pq_gcd_lhs_intermediate-2)%pq_gcd_lhs_intermediate;
 
     o <-- (mew != 0 ? 0 : 1);
+
+    /* Possible adjustment using the IsZero function
+    component isZero = IsZero();
+    isZero.in <== mew;
+    
+    o <== isZero.out * 1;
+    
+    // Constrain `o` to be 0
+    o === 0;
+    */
+
     g_out <-- g;
     n_out <-- pq_gcd_lhs_intermediate;
     lambda_out <-- lambda;
