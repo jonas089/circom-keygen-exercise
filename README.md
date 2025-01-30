@@ -1,6 +1,6 @@
 # Paillier Keygen in Circom
 >[!NOTE]
-> This was an interview exercise for a ZK position where conceptual understanding and approach were evaluated
+> This was an interview exercise for a ZK position where conceptual understanding and approach were evaluated.
 > I did pass, but this is not production code and out of context due to the nature of this exercise.
 
 For this exercise I chose to make use of a `gcd` function found in `math.circom`. Other than that I wrote the circuit code in `keygen.circom` with plenty of comments explaining each step.
