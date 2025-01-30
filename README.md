@@ -1,5 +1,5 @@
 # Paillier Keygen in Circom
->![NOTE]
+>[!NOTE]
 > This was an interview exercise for a ZK position where conceptual understanding and approach were evaluated
 > I did pass, but this is not production code and out of context due to the nature of this exercise.
 
